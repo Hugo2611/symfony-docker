@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PublicController!{% endblock %}
+
+{% block stylesheets %}
+<style>
+div{
+    background-color:#007791;
+}
+h3{
+    color: darkblue ;
+}
+</style>
+{% endblock %}
+{% block body %}
+    {% for article in articles %}
+    <div>
+        <h1>
+            <a href="{{ path('app_article',{id: article.id}) }}">{{article.title}}</a>
+        </h1>
+        <h3>{{article.auteur}}</h3>
+        <h4>{{article.date|date("m/d/Y")}}</h4>
+    </div>
+    {% endfor %}
+{% endblock %}
